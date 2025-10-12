@@ -19,7 +19,7 @@
 // - This is a simple one-liner function
 
 function sumTwoNumbers(a, b) {
-    // Your code here
+    return a + b;
 }
 
 // Test Cases
