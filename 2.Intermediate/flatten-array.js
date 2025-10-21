@@ -24,7 +24,18 @@
 // - Check if an element is an array using Array.isArray()
 
 function flattenArray(arr) {
-    // Your code here
+    let result = [];
+
+    for (let element of arr) {
+        if (Array.isArray(element)) {
+            // Recursively flatten nested arrays
+            result = result.concat(flattenArray(element));
+        } else {
+            result.push(element);
+        }
+    }
+
+    return result;
 }
 
 // Test Cases

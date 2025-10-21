@@ -26,7 +26,18 @@
 // - Start with result = 1 and multiply by each number
 
 function factorial(n) {
-    // Your code here
+    // Handle the special case where n is 0
+    if (n === 0) return 1;
+
+    // Initialize result to 1
+    let result = 1;
+
+    // Multiply result by every number from 1 to n
+    for (let i = 1; i <= n; i++) {
+        result *= i;
+    }
+
+    return result;
 }
 
 // Test Cases
