@@ -28,6 +28,20 @@
 
 function binarySearch(arr, target) {
     // Your code here
+      let st=0,end=arr.length;
+      while(st<=end){
+        mid=Math.floor((end+st)/2);
+        if(arr[mid]==target){
+            return mid;
+        }
+        if(arr[mid]<target){
+            st=mid+1;
+        }
+        else{
+            end=mid-1;
+        }
+      }
+      return -1;
 }
 
 // Test Cases
