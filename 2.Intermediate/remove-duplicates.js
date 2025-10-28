@@ -1,29 +1,28 @@
-// Remove Duplicates
-
-// Problem Description:
-// Write a function that removes duplicate values from an array and returns a new array
-// with only unique values.
-
-// Examples:
-// removeDuplicates([1, 2, 2, 3, 4, 4, 5]);           // Returns: [1, 2, 3, 4, 5]
-// removeDuplicates(["a", "b", "a", "c", "b"]);       // Returns: ["a", "b", "c"]
-// removeDuplicates([1, 1, 1, 1]);                    // Returns: [1]
-// removeDuplicates([]);                              // Returns: []
-// removeDuplicates([5, 3, 5, 2, 3, 1]);              // Returns: [5, 3, 2, 1]
-
-// Requirements:
-// - The function should accept an array as parameter
-// - Return a new array with duplicates removed
-// - Maintain the order of first occurrence
-// - Handle arrays with numbers, strings, or mixed types
-
-// Hints:
-// - You can use a Set to automatically remove duplicates
-// - Or use filter() with indexOf()
-// - Consider using the spread operator [...new Set(array)]
+// Remove Duplicates - Solution
 
 function removeDuplicates(arr) {
-    // Your code here
+    // Using Set to remove duplicates and spread operator to convert back to array
+    return [...new Set(arr)];
+    
+    // Alternative solution using filter and indexOf:
+    // return arr.filter((item, index) => arr.indexOf(item) === index);
+    
+    // Alternative solution using reduce:
+    // return arr.reduce((unique, item) => {
+    //     if (!unique.includes(item)) {
+    //         unique.push(item);
+    //     }
+    //     return unique;
+    // }, []);
+    
+    // Alternative solution using for loop:
+    // const unique = [];
+    // for (let item of arr) {
+    //     if (!unique.includes(item)) {
+    //         unique.push(item);
+    //     }
+    // }
+    // return unique;
 }
 
 // Test Cases
