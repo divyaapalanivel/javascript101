@@ -1,31 +1,26 @@
-// Count Vowels
-
-// Problem Description:
-// Write a function that counts how many vowels (a, e, i, o, u) are in a given string.
-// The function should be case-insensitive.
-
-// Examples:
-// countVowels("hello");           // Returns: 2
-// countVowels("JavaScript");      // Returns: 3
-// countVowels("aeiou");           // Returns: 5
-// countVowels("xyz");             // Returns: 0
-// countVowels("HELLO WORLD");     // Returns: 3
-
-// Requirements:
-// - The function should accept one string parameter
-// - Return the count of vowels (a, e, i, o, u)
-// - Should be case-insensitive (count both uppercase and lowercase vowels)
-// - Ignore all consonants and special characters
-
-// Hints:
-// - Convert the string to lowercase first
-// - Loop through each character and check if it's a vowel
-// - You can use an array of vowels to check against
-// - Consider using includes() method
-// - Or use filter() with split()
+// Count Vowels - Solution
 
 function countVowels(str) {
-    // Your code here
+    // Convert to lowercase for case-insensitive comparison
+    const lowerStr = str.toLowerCase();
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    let count = 0;
+    
+    // Loop through each character
+    for (let char of lowerStr) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+    
+    return count;
+    
+    // Alternative solution using filter:
+    // return str.toLowerCase().split('').filter(char => 'aeiou'.includes(char)).length;
+    
+    // Alternative solution using regex:
+    // const matches = str.match(/[aeiou]/gi);
+    // return matches ? matches.length : 0;
 }
 
 // Test Cases
