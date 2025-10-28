@@ -1,32 +1,38 @@
-// Anagram Checker
-
-// Problem Description:
-// Write a function that checks if two strings are anagrams of each other.
-// An anagram is a word or phrase formed by rearranging the letters of another.
-// Ignore spaces, punctuation, and case.
-
-// Examples:
-// isAnagram("listen", "silent");           // Returns: true
-// isAnagram("hello", "world");             // Returns: false
-// isAnagram("The Eyes", "They See");       // Returns: true
-// isAnagram("Dormitory", "Dirty room");    // Returns: true
-// isAnagram("abc", "def");                 // Returns: false
-
-// Requirements:
-// - The function should accept two string parameters
-// - Return true if they are anagrams, false otherwise
-// - Ignore spaces, punctuation, and case
-// - Only consider alphanumeric characters
-
-// Hints:
-// - Convert both strings to lowercase
-// - Remove all non-alphanumeric characters
-// - Sort the characters and compare
-// - Or count the frequency of each character in both strings
-// - You can use split(), sort(), and join()
+// Anagram Checker - Solution
 
 function isAnagram(str1, str2) {
-    // Your code here
+    // Helper function to clean and sort string
+    const cleanAndSort = (str) => {
+        return str
+            .toLowerCase()
+            .replace(/[^a-z0-9]/g, '')
+            .split('')
+            .sort()
+            .join('');
+    };
+    
+    // Compare the sorted, cleaned strings
+    return cleanAndSort(str1) === cleanAndSort(str2);
+    
+    // Alternative solution using character frequency:
+    // const getCharFrequency = (str) => {
+    //     const cleaned = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    //     const freq = {};
+    //     for (let char of cleaned) {
+    //         freq[char] = (freq[char] || 0) + 1;
+    //     }
+    //     return freq;
+    // };
+    // 
+    // const freq1 = getCharFrequency(str1);
+    // const freq2 = getCharFrequency(str2);
+    // 
+    // if (Object.keys(freq1).length !== Object.keys(freq2).length) return false;
+    // 
+    // for (let char in freq1) {
+    //     if (freq1[char] !== freq2[char]) return false;
+    // }
+    // return true;
 }
 
 // Test Cases
