@@ -21,7 +21,7 @@
 // - Consider using array methods like reduce()
 
 function findMaximum(numbers) {
-    // Your code here
+    return Math.max(...numbers);
 }
 
 // Test Cases
