@@ -1,32 +1,18 @@
-// Curry Function
-
-// Problem Description:
-// Write a function that transforms a function with multiple arguments into a
-// sequence of functions, each taking a single argument.
-// For example: f(a, b, c) becomes f(a)(b)(c)
-
-// Examples:
-// function add(a, b, c) { return a + b + c; }
-// const curriedAdd = curry(add);
-// curriedAdd(1)(2)(3);     // Returns: 6
-// curriedAdd(1, 2)(3);     // Returns: 6
-// curriedAdd(1)(2, 3);     // Returns: 6
-
-// Requirements:
-// - The function should accept a function as parameter
-// - Return a curried version of that function
-// - Should work with any number of arguments
-// - Should allow partial application (multiple args at once)
-
-// Hints:
-// - Use closures to store previously provided arguments
-// - Check if enough arguments have been collected
-// - Use the length property of the function to know how many args it expects
-// - Use rest parameters (...args) to collect arguments
-// - Use spread operator to pass collected arguments
+// Curry Function - Solution
 
 function curry(func) {
-    // Your code here
+    return function curried(...args) {
+        // If we have enough arguments, call the original function
+        if (args.length >= func.length) {
+            return func.apply(this, args);
+        }
+        // Otherwise, return a function that collects more arguments
+        else {
+            return function(...moreArgs) {
+                return curried.apply(this, args.concat(moreArgs));
+            };
+        }
+    };
 }
 
 // Test Cases
